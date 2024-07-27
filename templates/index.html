@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speech to Text for Disabled Persons</title>
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #1e1e1e;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            justify-content: flex-start;
+            height: 100vh;
+            overflow-x: auto;
+            overflow-y: hidden;
+            white-space: nowrap;
+        }
+
+        .section {
+            display: inline-block;
+            width: 50vw;
+            min-width: 300px;
+            height: 100vh;
+            padding: 20px;
+            box-sizing: border-box;
+            vertical-align: top;
+        }
+
+        .section:nth-child(odd) {
+            background: #242424;
+        }
+
+        .section:nth-child(even) {
+            background: #2a2a2a;
+        }
+
+        .heading1 {
+            font-family: 'Play', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: #00ffcc;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .heading2 {
+            font-size: 1.8rem;
+            text-align: center;
+            margin: 20px 0;
+            color: #0099ff;
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            font-weight: 400;
+            text-align: center;
+            margin: 10px 0;
+            color: #cccccc;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            margin: auto;
+            width: 90%;
+        }
+
+        textarea {
+            width: calc(100% - 20px);
+            height: 150px;
+            padding: 10px;
+            margin: 10px auto;
+            border: none;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: #fff;
+            resize: none;
+            display: block;
+            text-align: left;
+        }
+
+        button {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 10px auto;
+            border: none;
+            border-radius: 5px;
+            background: linear-gradient(to right, #0099ff, #00ffcc);
+            color: white;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 0.1rem;
+            font-weight: 600;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            display: block;
+            text-align: center;
+        }
+
+        button:hover {
+            background: linear-gradient(to left, #0099ff, #00ffcc);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="section">
+        <h1 class="heading1">Welcome to My Website</h1>
+        <p class="tagline">Your tagline goes here</p>
+    </div>
+    <div class="section">
+        <div class="container">
+            <h2 class="heading2">Speech to Text</h2>
+            <textarea id="transcript" placeholder="Your speech will be transcribed here..."></textarea>
+            <button id="start-btn">Start Listening</button>
+            <button id="stop-btn">Stop Listening</button>
+        </div>
+    </div>
+
+    <script>
+        window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+        const recognition = new SpeechRecognition();
+        recognition.interimResults = true;
+        recognition.lang = 'en-US';
+
+        let transcriptContainer = document.getElementById('transcript');
+        let startBtn = document.getElementById('start-btn');
+        let stopBtn = document.getElementById('stop-btn');
+
+        recognition.addEventListener('result', (e) => {
+            const transcript = Array.from(e.results)
+                .map(result => result[0])
+                .map(result => result.transcript)
+                .join('');
+            transcriptContainer.value = transcript;
+        });
+
+        recognition.addEventListener('end', recognition.start);
+
+        startBtn.addEventListener('click', () => {
+            recognition.start();
+        });
+
+        stopBtn.addEventListener('click', () => {
+            recognition.stop();
+        });
+    </script>
+</body>
+
+</html>
+can i have the same code for python
