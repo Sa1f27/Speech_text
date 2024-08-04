@@ -12,7 +12,7 @@ def index():
 def save_transcription():
     transcription = request.json.get('transcription')
     with open('transcriptions.txt', 'a') as f:
-        f.write(transcription + '\n')
+        f.write(transcription + '\n') #to write
     return jsonify({"status": "success"}), 200
 
 if __name__ == '__main__':
