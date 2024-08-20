@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('css.html')
 
 @app.route('/save_transcription', methods=['POST'])
 def save_transcription():
