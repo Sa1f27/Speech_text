@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, jsonify
-import speech_recognition as sr
+import speech_recognition as sre
 import os
 
 app = Flask(__name__)
