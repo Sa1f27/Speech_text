@@ -72,11 +72,7 @@
             stopBtn.disabled = true;
         });
 
-        startBtn.addEventListener('click', () => {
-            recognition.start();
-            startBtn.disabled = true;
-            stopBtn.disabled = false;
-        });
+        
 
         stopBtn.addEventListener('click', () => {
             recognition.stop();
