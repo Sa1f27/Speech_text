@@ -1,4 +1,4 @@
-```
+
 # Flask Speech-to-Text Transcription App
 
 This project is a Flask-based web application that accepts audio input, transcribes it to text, and saves the transcription to a file.
@@ -14,8 +14,8 @@ This project is a Flask-based web application that accepts audio input, transcri
 1. Clone the repository:
 
    ```
-   git clone <your_repo_url>
-   cd <repo_folder>
+   git clone "https://github.com/Sa1f27/Speech_text.git"
+   
    ```
 
 2. Install the required packages:
