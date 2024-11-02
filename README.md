@@ -1,5 +1,44 @@
-<div align="center"> 
-  
-<h2>🐍 Contributions 🐍</h2>
-  <img alt="snake eating my contributions" src="https://raw.githubusercontent.com/salesp07/salesp07/output/github-contribution-grid-snake.svg" />
-</div>
+```
+# Flask Speech-to-Text Transcription App
+
+This project is a Flask-based web application that accepts audio input, transcribes it to text, and saves the transcription to a file.
+
+## Features
+
+- Simple web interface
+- Converts audio to text using `speech_recognition`
+- Saves transcriptions in a text file (`transcriptions.txt`)
+
+## Installation
+
+1. Clone the repository:
+
+   ```
+   git clone <your_repo_url>
+   cd <repo_folder>
+   ```
+
+2. Install the required packages:
+
+   ```
+   pip install Flask speechrecognition
+   ```
+
+## Usage
+
+1. Run the Flask app:
+
+   ```bash
+   python app.py
+   ```
+
+2. Visit `http://127.0.0.1:5000/` in your web browser.
+
+## API Endpoints
+
+- **GET /**: Renders the main interface (`index.html`).
+
+## File Structure
+
+- `app.py`: Main server code
+- `templates/index.html`: Frontend interfac
